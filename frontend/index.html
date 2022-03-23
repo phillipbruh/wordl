@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rtvw - Real Time Versus Wordle</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.10.1/dist/css/uikit.min.css" />
+
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.10.1/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.10.1/dist/js/uikit-icons.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  
+</head>
+<body>
+  <div class="screenDiv">
+    <div class="container uk-width-1-1 uk-height-1-1">
+
+      <div id="initialScreen">
+        <div class="uk-width-1-3 uk-align-center">
+          <h1>rtvw - Real Time Versus Wordle</h1>
+                    
+          <div class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-1">
+              <input type="text" class="uk-textarea" placeholder="Enter Username" id="usernameInput"/>
+            </div>
+            <div class="uk-width-1-2@s">
+              <div>
+                <input type="text" class="uk-textarea" placeholder="Enter Game Code" id="gameCodeInput"/>
+              </div>
+            </div>
+            <div class="uk-width-1-4@s">
+
+            </div>
+            <div class="uk-width-1-4@s">
+
+            </div>
+            <div class="uk-width-1-2@s">
+              <button type="submit" class="uk-width-1-1 uk-button uk-button-default" id="joinGameButton">
+                Join Game
+              </button>
+            </div>
+            <div class="uk-width-1-2@s">
+              <button class="uk-width-1-1 uk-button uk-button-default" id="newGameButton">
+                Create New Game
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div id="controls">
+        <button id="newGameButton">NEW GAME</button>
+        <button id="giveUpButton">GIVE UP</button>
+      </div> -->
+
+      <div class="uk-child-width-expand@s uk-height-1-1" uk-grid>
+        <div>
+          
+          <h4><span id="gameCodeDisplay"></span></h4>
+          <div id="gameSettingsForm" style="display:none" class="uk-form-horizontal">
+            <div class="uk-margin">
+              <label class="uk-form-label" for="form-horizontal-text">Round Length</label>
+              <div class="uk-form-controls">
+                <select id="roundLengthSelect" class="uk-select">
+                  <option value="60">60 seconds</option>
+                  <option value="90">90 seconds</option>
+                  <option value="120">120 seconds</option>
+                  <option value="0">No limit - first one wins!</option>
+                </select>
+              </div>
+            </div>
+            <div class="uk-margin">
+              <label class="uk-form-label" for="form-horizontal-text">Word Length</label>
+              <div class="uk-form-controls">
+                <select id="wordLengthSelect" class="uk-select">
+                  <option value="5">5 letters</option>
+                  <option value="6">6 letters</option>
+                  <option value="7">7 letters</option>
+                </select>
+              </div>
+            </div>
+            <div class="uk-margin">
+              <label class="uk-form-label" for="form-horizontal-text">Guess limit</label>
+              <div class="uk-form-controls">
+                <select id="guessCountSelect" class="uk-select">
+                  <option value="5">5 guesses</option>
+                  <option value="6">6 guesses</option>
+                  <option value="7">7 guesses</option>
+                </select>
+              </div>
+            </div>
+            <button id="startGameButton" class="uk-button uk-button-default">Start</button>
+          </div>
+          <ul class="uk-list uk-list-divider uk-width-1-2 uk-margin-top" id="playerList">
+          </ul>
+        </div>
+        <div>
+          <div id="game" >
+            <h4><span id="gameState"></span></h4>
+            <div id="game-container"></div>
+            <div>
+              <div id="keyboard" ></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <canvas id="otherBoardsCanvas" class="uk-width-1-1 uk-height-1-1"></canvas>
+        </div>
+      </div>
+
+
+      <!--  <div class="uk-container uk-width-1-1 uk-height-1-1" >
+        <div class="uk-width-1-3">
+          <ul class="uk-list uk-list-divider uk-width-1-2 uk-margin-top" id="playerList">
+          </ul>
+          <button id="startGameButton" style="display:none" class="uk-button uk-button-default">Start</button>
+          <h4><span id="gameCodeDisplay"></span></h4>
+        </div>
+        <div class="uk-container uk-width-1-3 uk-height-1-1">
+          <div id="game" >
+            <h4><span id="gameState"></span></h4>
+            <div id="game-container"></div>
+            <div class="uk-width-1-3 uk-align-center">
+              <div id="keyboard" ></div>
+            </div>
+          </div>
+        </div>
+        <div class="uk-container uk-width-1-3 uk-height-1-1">
+          <canvas id="otherBoardsCanvas" style="outline: #FF0000 solid 10px;" class=""></canvas>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
